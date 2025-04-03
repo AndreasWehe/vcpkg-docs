@@ -296,7 +296,7 @@ The version of tools used to build your libraries, CMake or PowerShell, changed 
 Visual Studio automatically updated, including any tools, between runs. Even minor version updates will result in vcpkg rebuilding the set of libraries.
 
 * [Disable automatic Visual Studio updates](/visualstudio/install/update-visual-studio#always-update-on-close-and-other-download-behaviors).
-* Add `--x-abi-tools-use-exact-versions` to your vcpkg invocation. This fixes the ABI of your tools based on the version in `vcpkgTools.xml`; vcpkg fetches its own copy if necessary.
+* Add `--x-abi-tools-use-exact-versions` to your vcpkg invocation. This fixes the ABI of your tools based on the version in `vcpkg-tools.json`; vcpkg fetches its own copy if necessary.
 
 #### Cause 2: The library was built on a different machine than the machine used to consume it.
 
@@ -304,7 +304,7 @@ One machine created and published the binary package to a remote cache. Another 
 
 * Use the same tool versions locally as on your remote machine.
 * Rebuild your dependencies locally for development purposes. Test and address issues later during continuous integration.
-* Add `--x-abi-tools-use-exact-versions` to your vcpkg invocation. This fixes the ABI of your tools based on the version in `vcpkgTools.xml`; vcpkg fetches its own copy if necessary.
+* Add `--x-abi-tools-use-exact-versions` to your vcpkg invocation. This fixes the ABI of your tools based on the version in `vcpkg-tools.json`; vcpkg fetches its own copy if necessary.
 
 #### Cause 3: Self-hosted image updated the tools.
 
@@ -312,13 +312,13 @@ The underlying image you used to build vcpkg dependencies changed, which the ver
 
 * Pin to a stable and versioned image. Ensure you are not fetching the latest image so it does not automatically update underlying tools between runs.
 * If you need to update the image frequently, pin any relevant tools to a specific version when creating your image.
-* Add `--x-abi-tools-use-exact-versions` to your vcpkg invocation. This fixes the ABI of your tools based on the version in `vcpkgTools.xml`; vcpkg fetches its own copy if necessary.
+* Add `--x-abi-tools-use-exact-versions` to your vcpkg invocation. This fixes the ABI of your tools based on the version in `vcpkg-tools.json`; vcpkg fetches its own copy if necessary.
 
 #### Cause 4: GitHub Hosted Runners updated underlying tools.
 
 Hosted GitHub runners update compilers and tools weekly.
 
-* Add `--x-abi-tools-use-exact-versions` to your vcpkg invocation. This fixes the ABI of your tools based on the version in `vcpkgTools.xml`; vcpkg fetches its own copy if necessary.
+* Add `--x-abi-tools-use-exact-versions` to your vcpkg invocation. This fixes the ABI of your tools based on the version in `vcpkg-tools.json`; vcpkg fetches its own copy if necessary.
 
 ### <a name="other-options"></a> Other Options
 
